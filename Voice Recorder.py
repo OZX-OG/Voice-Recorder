@@ -1,4 +1,6 @@
 #import libraries
+# Code Changed, Optimized And Commented By: OZX-OG
+
 import pyaudio
 import wave
 import colorama
