@@ -1,7 +1,13 @@
 import pyaudio
 import wave
+import colorama
 from keyboard import is_pressed
 from time import sleep
+from colorama import Fore
+
+colorama.init(autoreset=True)
+
+print(f"{Fore.YELLOW}--{Fore.GREEN} Voice Recorder By: OZX-OG {Fore.YELLOW} --")
 
 STOP = "s"
 i = 0
@@ -14,8 +20,16 @@ frames = []
 
 
 
+
+
 print(f"You can stop recording by Pressing: {STOP}")
 input("press Enter To start recording: ")
+
+if name == 'nt': system('cls')
+else: system("clear") 
+
+print(f"-{Fore.RED} s {Fore.WHITE}- to stop")
+print(f"{Fore.YELLOW}-{Fore.GREEN} iS Recording... {Fore.YELLOW}-")
 
 
 try:
@@ -23,12 +37,12 @@ try:
         data = stream.read(1024)
         frames.append(data)
         i += 1
-        print(f"- reading - Sec: {i}")
 
         if is_pressed(STOP):
             stream.stop_stream()
             stream.close()
             audio_rec.terminate()
+            print(f"{Fore.RED}- End Record -")
             break
 except KeyboardInterrupt:
     pass
