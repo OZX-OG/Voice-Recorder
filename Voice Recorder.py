@@ -19,9 +19,6 @@ stream = audio_rec.open(channels=1, rate=44100, format=pyaudio.paInt16, input=Tr
 frames = []
 
 
-
-
-
 print(f"You can stop recording by Pressing: {STOP}")
 input("press Enter To start recording: ")
 
@@ -32,20 +29,17 @@ print(f"-{Fore.RED} s {Fore.WHITE}- to stop")
 print(f"{Fore.YELLOW}-{Fore.GREEN} iS Recording... {Fore.YELLOW}-")
 
 
-try:
-    while True:
-        data = stream.read(1024)
-        frames.append(data)
-        i += 1
+while True:
+    data = stream.read(1024)
+    frames.append(data)
+    i += 1
 
-        if is_pressed(STOP):
-            stream.stop_stream()
-            stream.close()
-            audio_rec.terminate()
-            print(f"{Fore.RED}- End Record -")
-            break
-except KeyboardInterrupt:
-    pass
+    if is_pressed(STOP):
+        stream.stop_stream()
+        stream.close()
+        audio_rec.terminate()
+        print(f"{Fore.RED}- End Record -")
+        break
 
     
 file_name = input("Enter Audio-File name: ")
