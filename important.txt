@@ -1,0 +1,4 @@
+PyAudio==0.2.11
+Wave==0.0.2
+colorama==0.4.4
+keyboard==0.13.5
